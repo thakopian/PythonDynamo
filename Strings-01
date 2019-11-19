@@ -1,0 +1,8 @@
+#set your inputs
+
+string1 = IN[0]
+string2 = IN[1]
+string3 = IN[2]
+
+#set your output
+OUT = string1 + string2 + string3
