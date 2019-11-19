@@ -1,0 +1,19 @@
+# Enable Python support and load DesignScript library
+import clr
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript.Geometry import *
+clr.AddReference('RevitNodes')
+from Revit.Elements import *
+
+famtype = IN[0]
+pbc = Point.ByCoordinates(0,0,0)
+output = []
+
+for x in range(0, 100, 20):
+	for y in range(0, 100, 20):
+		for z in range(0, 100, 20):
+			pbc = Point.ByCoordinates(x,y,z)
+			col = FamilyInstance.ByPoint(famtype,pbc)
+			output.append(col)
+
+OUT = output
