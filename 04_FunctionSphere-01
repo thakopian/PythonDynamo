@@ -1,0 +1,13 @@
+import clr
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript.Geometry import *
+
+def sphereByZ(inputPt1):
+	sphereRad=Input1.Z/10
+	sphere = Sphere.ByCenterPointRadius(input1, sphereRad)
+	return sphere
+
+inputPt1 = IN[0]
+sphereRad = IN[1]
+
+OUT = 0
