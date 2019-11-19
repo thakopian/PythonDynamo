@@ -1,0 +1,17 @@
+# define variables
+string1 = "The beginning"
+string2 = ["one fish", "two fish", "red fish", "blue fish"]
+string3 = "The end"
+numbers = [1, 2, 3]
+
+# out variables
+list = []
+
+# Build the list with appended variables
+
+list.append(string1)
+list.append(string2)
+list.append(numbers)
+
+#results to be returned
+OUT = list, string3
