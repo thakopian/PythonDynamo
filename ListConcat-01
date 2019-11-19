@@ -1,0 +1,10 @@
+BuildingNames = IN[0]
+DisciplineNames = IN[1]
+
+Outlist = list()
+
+for BN in BuildingNames:
+	for DN in DisciplineNames:
+		Outlist.append(BN + "_" + DN)
+		
+OUT = Outlist		
