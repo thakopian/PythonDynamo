@@ -1,0 +1,14 @@
+import clr
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript.Geometry import *
+
+PTS = IN[0]
+outList = []
+
+for PT in PTS:
+	try:
+		outList.append(PT.Y)
+	except:
+		outList.append("Add Y Value")	
+	
+OUT = outList	
