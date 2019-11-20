@@ -1,0 +1,23 @@
+# Enable Python support and load DesignScript library
+import clr
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript.Geometry import *
+
+# The inputs to this node will be stored as a list in the IN variables.
+NodeList = IN[0]
+NumberNodes = IN[1]
+CopyNumber = IN[2]
+
+NewPoints = []
+
+Vertical = 5
+
+# Place your code below this line
+for j in range (0, CopyNumber):
+	for i in range (0, NumberNodes + 1):
+		D = NodeList[i];
+		E = Geometry.Translate(D,0,0,Vertical*j);
+		NewPoints.append(E)
+
+# Assign your output to the OUT variable.
+OUT = NewPoints
