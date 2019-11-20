@@ -1,0 +1,24 @@
+import clr
+clr.AddReference('RevitAPI')
+from Autodesk.Revit.DB import *
+import Autodesk
+
+clr.AddReference('RevitNodes')
+import Revit
+clr.ImportExtensions(Revit.GeometryConversion)
+clr.ImportExtensions(Revit.Elements)
+
+clr.AddReference('RevitServices')
+from RevitServices.Persistence import DocumentManager
+from RevitServices.Transactions import TransactionManager
+
+doc = DocumentManager.Instance.CurrentDBDocument
+
+bip = BuiltInParameter.ALL_MODEL_TYPE_MARK
+provider = ParameterValueProvider(ElementId(bip))
+evaluator = FilterStringEquals();
+rule = FilterStringRule(provider, evaluator, "A6", False);
+filter = ElementParameterFilter(rule);
+walls = FilteredElementCollector(doc).OfClass(Wall).WherePasses(filter).ToElements()
+
+OUT = walls
